@@ -1,10 +1,25 @@
 name: Actions Workflow
 
 on:
-  repository_dispatch:
-    types: ["Postman"]
-  pull_request:
-    types: [closed, assigned, opened, reopened]
+  push:
+    #branches:
+    branches-ignore:
+      - master
+      - "feature/*" #matches feature/featA
+      - "feature/**" #matches feature/a/featA
+      - "!feature/featC" #excludes featC from patterns listed above
+    tags:
+      - v1.*
+    #paths:
+    #  - '**.js' #matches any js file in repo
+    paths-ignore:
+      - 'docs/**'
+  #repository_dispatch:
+  #  types: ["Postman"]
+  #schedule:
+  #  - cron: "0/5 * * * *"
+  #pull_request:
+  #  types: [closed, assigned, opened, reopened]
 
 jobs:
   run-github-actions:
