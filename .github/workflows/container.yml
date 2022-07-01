@@ -9,4 +9,6 @@ jobs:
       #env,ports,volumes,options
     steps:
       - name: Log node version
-        run: node -v
+        run: |
+          node -v
+          cat /etc/os-release
