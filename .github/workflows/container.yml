@@ -13,7 +13,7 @@ jobs:
           node -v
           cat /etc/os-release
       - name: Send a Slack message
-        uses: docker://node:12.14.1-alpine3.10
+        uses: docker://technosophos/slack-notify
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_MESSAGE: "Hello Slack!"
